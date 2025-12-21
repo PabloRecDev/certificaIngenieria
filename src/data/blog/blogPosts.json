@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "title": "Cómo reducir el consumo energético en edificios de oficinas",
+    "excerpt": "Estrategias prácticas para optimizar el consumo eléctrico y térmico en edificios corporativos, desde la gestión de contratos hasta la implementación de sistemas de control inteligente.",
+    "date": "15 Mar 2024",
+    "readTime": "5 min",
+    "category": "Eficiencia energética",
+    "imageUrl": "https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "slug": "reducir-consumo-energetico-oficinas"
+  },
+  {
+    "id": "2",
+    "title": "Guía completa sobre certificación energética: todo lo que necesitas saber",
+    "excerpt": "Explicación detallada del proceso de certificación energética, requisitos legales, validez del certificado y cómo mejorar la calificación de tu vivienda o local.",
+    "date": "8 Mar 2024",
+    "readTime": "8 min",
+    "category": "Certificación",
+    "imageUrl": "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "slug": "guia-certificacion-energetica"
+  },
+  {
+    "id": "3",
+    "title": "Autoconsumo fotovoltaico: inversión y ahorro real",
+    "excerpt": "Análisis de la rentabilidad del autoconsumo solar en diferentes tipos de edificios, ayudas disponibles y casos reales de ahorro energético.",
+    "date": "1 Mar 2024",
+    "readTime": "6 min",
+    "category": "Renovables",
+    "imageUrl": "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "slug": "autoconsumo-fotovoltaico-inversion-ahorro"
+  },
+  {
+    "id": "4",
+    "title": "Nuevas normativas energéticas 2024: qué cambia para tu edificio",
+    "excerpt": "Resumen de las actualizaciones normativas en eficiencia energética y cómo afectan a edificios nuevos y existentes en España.",
+    "date": "22 Feb 2024",
+    "readTime": "7 min",
+    "category": "Normativa",
+    "imageUrl": "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "slug": "normativas-energeticas-2024"
+  },
+  {
+    "id": "5",
+    "title": "Aerotermia vs gas natural: comparativa para climatización",
+    "excerpt": "Comparación técnica y económica entre sistemas de aerotermia y gas natural para calefacción y ACS en edificios residenciales y terciarios.",
+    "date": "15 Feb 2024",
+    "readTime": "9 min",
+    "category": "Eficiencia energética",
+    "imageUrl": "https://images.pexels.com/photos/189569/pexels-photo-189569.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "slug": "aerotermia-vs-gas-natural"
+  },
+  {
+    "id": "6",
+    "title": "Auditorías energéticas según RD 56/2016: requisitos y beneficios",
+    "excerpt": "Cuándo es obligatoria una auditoría energética, qué incluye el proceso y cómo puede ayudar a identificar oportunidades de ahorro en tu empresa.",
+    "date": "8 Feb 2024",
+    "readTime": "6 min",
+    "category": "Auditorías",
+    "imageUrl": "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "slug": "auditorias-energeticas-rd-56-2016"
+  }
+]
+

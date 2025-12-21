@@ -44,23 +44,35 @@ Las páginas deben crearse en `app/[ruta]/page.tsx`. Ejemplo:
 
 Los componentes que usan hooks de cliente deben tener `"use client"` al inicio.
 
-### 6. Configurar Supabase
+### 6. Configurar Resend para formularios de contacto
 
-Crear `lib/supabaseClient.ts` adaptado para Next.js (ya existe, solo verificar).
+El formulario de contacto utiliza Resend para enviar notificaciones por correo electrónico.
 
-### 7. Variables de entorno
+**Pasos para configurar Resend:**
 
-Crear `.env.local` con:
+1. Regístrate en [Resend](https://resend.com/) (gratis hasta 3,000 emails/mes)
+2. Crea una API Key desde el dashboard de Resend
+3. Verifica tu dominio o usa el dominio de prueba de Resend
+4. Añade las siguientes variables a tu `.env.local`:
+
+```env
+RESEND_API_KEY=re_tu_api_key_aqui
+RESEND_FROM_EMAIL=noreply@certificaingenieria.com
+RESEND_TO_EMAIL=administración@certificaingenieria.com
+```
+
+**Notas:**
+- `RESEND_API_KEY`: Tu API key de Resend (obligatorio)
+- `RESEND_FROM_EMAIL`: Email desde el que se enviarán los mensajes (debe estar verificado en Resend)
+- `RESEND_TO_EMAIL`: Email donde recibirás los mensajes de contacto (por defecto: administración@certificaingenieria.com)
+
+### 7. Variables de entorno (opcional - solo si usas Supabase para otras funciones)
+
+Si necesitas Supabase para otras funcionalidades (no para el formulario de contacto), crea `.env.local` con:
 ```
 NEXT_PUBLIC_SUPABASE_URL=tu_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_key
-NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/xdandgvb
 ```
-
-**Nota sobre Formspree:**
-- El endpoint de Formspree ya está configurado por defecto: `https://formspree.io/f/xdandgvb`
-- Si quieres usar otro endpoint, puedes sobrescribirlo con la variable `NEXT_PUBLIC_FORMSPREE_ENDPOINT` en `.env.local`
-- Si no configuras la variable, se usará el endpoint por defecto
 
 ### 8. Ejecutar
 

@@ -1,13 +1,13 @@
-"use client";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Layout } from "../components/Layout";
 import {
   Envelope,
   Phone,
   PaperPlaneTilt,
   CheckCircle,
 } from "phosphor-react";
+import { supabase } from "../lib/supabaseClient";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -18,7 +18,7 @@ const fadeInUp = {
   },
 };
 
-export const ContactoPage: React.FC = () => {
+const Contacto: React.FC = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -35,67 +35,63 @@ export const ContactoPage: React.FC = () => {
     setError(null);
 
     try {
-      // Validar datos antes de enviar
-      if (!formData.nombre.trim() || !formData.email.trim() || !formData.mensaje.trim()) {
-        setError("Por favor, completa todos los campos obligatorios.");
-        setLoading(false);
-        return;
-      }
-
-      // Validar formato de email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        setError("Por favor, introduce un email válido.");
-        setLoading(false);
-        return;
-      }
-
-      // Enviar mensaje usando Resend a través de la API route
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nombre: formData.nombre.trim(),
-          email: formData.email.trim(),
-          mensaje: formData.mensaje.trim(),
-        }),
+      const { error: leadsError } = await supabase.from("leads").insert({
+        name: formData.nombre,
+        email: formData.email,
+        message: formData.mensaje,
+        status: "new",
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || "Ha habido un problema al enviar el mensaje. Inténtalo de nuevo.");
-        setLoading(false);
-        return;
-      }
-
-      // Si llegamos aquí, todo fue bien
-      setSubmitted(true);
-      setFormData({
-        nombre: "",
-        email: "",
-        mensaje: "",
-        rgpd: false,
+      // Actualizar/crear contacto en tabla contacts (por email)
+      // Primero intentamos insertar, si falla por conflicto hacemos update
+      const { error: insertError } = await supabase.from("contacts").insert({
+        name: formData.nombre,
+        email: formData.email,
       });
 
-      // Resetear el mensaje de éxito después de 5 segundos
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
+      let contactsError = insertError;
+      // Si el error es por conflicto único (email ya existe), hacemos update
+      if (insertError?.code === "23505") {
+        const { error: updateError } = await supabase
+          .from("contacts")
+          .update({ name: formData.nombre })
+          .eq("email", formData.email);
+        contactsError = updateError;
+      }
+
+      if (leadsError || contactsError) {
+        // eslint-disable-next-line no-console
+        console.error(leadsError || contactsError);
+        setError(
+          "Ha habido un problema al enviar el mensaje. Inténtalo de nuevo en unos minutos."
+        );
+      } else {
+        setSubmitted(true);
+        setFormData({
+          nombre: "",
+          email: "",
+          mensaje: "",
+          rgpd: false,
+        });
+      }
     } catch (err) {
-      console.error("Error inesperado:", err);
+      // eslint-disable-next-line no-console
+      console.error(err);
       setError(
         "Ha habido un problema al enviar el mensaje. Inténtalo de nuevo en unos minutos."
       );
     } finally {
       setLoading(false);
+      if (!error) {
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
+      }
     }
   };
 
   return (
-    <>
+    <Layout>
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white py-14 sm:py-20">
         <div className="section-container">
@@ -349,7 +345,10 @@ export const ContactoPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </>
+
+    </Layout>
   );
 };
+
+export default Contacto;
 
