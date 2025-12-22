@@ -255,7 +255,7 @@ const Home: React.FC = () => {
                   to="/contacto"
                   className="btn-primary px-6 py-2.5 shadow-lg shadow-black/40"
                 >
-                  Hablar con ingeniería
+                  Hablar con Certifica
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

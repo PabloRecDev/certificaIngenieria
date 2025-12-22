@@ -109,10 +109,10 @@ export const ContactoPage: React.FC = () => {
               Contacto
             </p>
             <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Hablemos de tu proyecto energético
+              Hablemos de tu proyecto
             </h1>
             <p className="text-base text-slate-600 sm:text-lg">
-              Cuéntanos tu caso y te responderemos en menos de 48 horas laborables.
+              Cuéntanos tu proyecto de obra nueva o rehabilitación y te responderemos en menos de 48 horas laborables.
             </p>
           </motion.div>
         </div>
@@ -121,7 +121,7 @@ export const ContactoPage: React.FC = () => {
       {/* Contenido principal */}
       <section className="border-b border-slate-200 bg-white py-14 sm:py-20">
         <div className="section-container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-8 lg:gap-10 lg:grid-cols-2 lg:items-start">
             {/* Texto a la izquierda */}
             <motion.div
               initial="hidden"
@@ -135,7 +135,7 @@ export const ContactoPage: React.FC = () => {
                   ¿Cómo podemos ayudarte?
                 </h2>
                 <p className="text-base leading-relaxed text-slate-600">
-                  Cuéntanos tu caso y te preparamos un prediagnóstico energético sin compromiso. 
+                  Cuéntanos tu proyecto y te preparamos un presupuesto sin compromiso. 
                   Te responderemos en menos de 48 horas laborables.
                 </p>
               </div>
@@ -148,8 +148,8 @@ export const ContactoPage: React.FC = () => {
                   </p>
                   <ul className="space-y-1 text-xs sm:text-sm">
                     <li>· Viviendas unifamiliares de obra nueva.</li>
-                    <li>· Reformas integrales con mejora energética.</li>
-                    <li>· Edificios plurifamiliares y comunidades.</li>
+                    <li>· Edificios en bloque y promociones.</li>
+                    <li>· Rehabilitación de fachadas y SATE.</li>
                   </ul>
                 </div>
                 <div className="space-y-2">
@@ -157,9 +157,9 @@ export const ContactoPage: React.FC = () => {
                     Qué puedes pedirnos
                   </p>
                   <ul className="space-y-1 text-xs sm:text-sm">
-                    <li>· Estudio energético inicial y opciones de mejora.</li>
-                    <li>· Acompañamiento en obra y coordinación técnica.</li>
-                    <li>· Dudas sobre normativa y certificación energética.</li>
+                    <li>· Presupuesto para tu proyecto.</li>
+                    <li>· Consulta sobre plazos y proceso.</li>
+                    <li>· Información sobre obra nueva o rehabilitación.</li>
                   </ul>
                 </div>
               </div>

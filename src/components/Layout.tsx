@@ -223,7 +223,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
                 )}
               </AnimatePresence>
             </div>
-
             {/* Resto de secciones */}
             {sections.map((s, index) => {
               const isActive = location.pathname === s.path;

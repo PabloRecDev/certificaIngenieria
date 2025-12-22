@@ -54,7 +54,7 @@ export const RehabilitacionSatePage: React.FC = () => {
               className="relative overflow-hidden rounded-2xl"
             >
               <img
-                src="https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/assets/img4.jpeg"
                 alt="Rehabilitación y SATE"
                 className="h-full w-full object-cover"
               />
@@ -77,13 +77,6 @@ export const RehabilitacionSatePage: React.FC = () => {
               variants={fadeInUp}
               className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Rehabilitación de edificios"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
                   <Buildings size={32} weight="duotone" />
@@ -116,13 +109,6 @@ export const RehabilitacionSatePage: React.FC = () => {
               variants={fadeInUp}
               className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Sistemas SATE"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
                   <Wrench size={32} weight="duotone" />
@@ -211,6 +197,81 @@ export const RehabilitacionSatePage: React.FC = () => {
                 <p className="text-xs leading-relaxed text-slate-600">
                   {service.description}
                 </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Ejemplos de proyectos */}
+      <section className="border-b border-slate-200 bg-white py-14 sm:py-20">
+        <div className="section-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+            className="mb-10 max-w-2xl"
+          >
+            <h2 className="mb-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Ejemplos de proyectos de rehabilitación y SATE
+            </h2>
+            <p className="text-sm text-slate-600 sm:text-base">
+              Algunos ejemplos de rehabilitaciones de fachada que hemos ejecutado.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid gap-6 md:grid-cols-3"
+          >
+            {[
+              {
+                image: "/assets/img1.jpeg",
+                title: "Rehabilitación de fachada",
+                location: "Calle Manzanos 34, San Sebastián de los Reyes",
+              },
+              {
+                image: "/assets/img2.jpeg",
+                title: "Rehabilitación de fachada",
+                location: "Calle Manzanos 34, San Sebastián de los Reyes",
+              },
+              {
+                image: "/assets/img3.jpeg",
+                title: "Rehabilitación de fachada",
+                location: "Calle Manzanos 34, San Sebastián de los Reyes",
+              },
+            ].map((project, index) => (
+              <motion.div
+                key={`${project.title}-${index}`}
+                variants={fadeInUp}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
+              >
+                <div className="relative h-64 overflow-hidden bg-slate-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = '<div class="flex h-full items-center justify-center text-slate-400 text-sm">Imagen no disponible</div>';
+                      }
+                    }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="mb-1 text-base font-semibold text-slate-900">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-slate-600">{project.location}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
