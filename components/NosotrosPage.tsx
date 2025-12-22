@@ -61,7 +61,7 @@ export const NosotrosPage: React.FC = () => {
               className="relative overflow-hidden rounded-2xl"
             >
               <img
-                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/assets/img4.jpeg"
                 alt="Nosotros"
                 className="h-full w-full object-cover"
               />
@@ -79,12 +79,12 @@ export const NosotrosPage: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeInUp}
-              className="relative overflow-hidden rounded-2xl"
+              className="relative flex items-center justify-center rounded-2xl bg-white p-8"
             >
               <img
-                src="https://images.pexels.com/photos/3862371/pexels-photo-3862371.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Equipo"
-                className="h-full w-full object-cover"
+                src="/assets/logo.png"
+                alt="Certifica Ingeniería"
+                className="h-auto w-full max-w-md object-contain"
               />
             </motion.div>
             <motion.div

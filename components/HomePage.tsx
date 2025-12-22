@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Buildings,
   IdentificationBadge,
@@ -95,100 +95,83 @@ const cardVariants = {
   },
 };
 
-const heroImages = [
-  "https://images.pexels.com/photos/8853507/pexels-photo-8853507.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/189569/pexels-photo-189569.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/1294945/pexels-photo-1294945.jpeg?auto=compress&cs=tinysrgb&w=1600",
-];
-
 export const HomePage: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
       {/* HERO */}
-      <section className="relative border-b border-slate-200 bg-slate-900 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentImageIndex}
-            className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            style={{
-              backgroundImage: `url('${heroImages[currentImageIndex]}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-        </AnimatePresence>
+      <section className="relative border-b border-slate-200 bg-slate-900 overflow-hidden min-h-[750px] sm:min-h-[850px] md:min-h-[950px] lg:min-h-[1050px] xl:min-h-[1150px]">
         <motion.div
-          className="absolute inset-0 z-10 bg-black/45 md:bg-black/55"
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          style={{
+            backgroundImage: `url('/assets/img4.jpeg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          aria-label="Promoción de 33 viviendas en Pau de Carabanchel - Obra nueva residencial"
+        />
+        <motion.div
+          className="absolute inset-0 z-10 bg-black/50 sm:bg-black/45 md:bg-black/55"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         />
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => setCurrentImageIndex(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentImageIndex
-                  ? "w-8 bg-brand-secondary"
-                  : "w-2 bg-white/50 hover:bg-white/70"
-              }`}
-              aria-label={`Ir a imagen ${index + 1}`}
-            />
-          ))}
-        </div>
-        <div className="relative section-container flex items-center py-40 lg:py-48 z-10">
-          <div className="max-w-3xl space-y-6 text-slate-50">
+        <div className="relative section-container flex items-center py-32 sm:py-44 md:py-60 lg:py-80 xl:py-[28rem] z-10 min-h-[750px] sm:min-h-[850px] md:min-h-[950px] lg:min-h-[1050px] xl:min-h-[1150px]">
+          <div className="max-w-3xl space-y-4 sm:space-y-5 md:space-y-6 text-slate-50 w-full">
             <motion.h1
-              className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+              className="text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight sm:leading-tight"
               variants={heroTitleVariants}
               initial="hidden"
               animate="visible"
             >
-              Viviendas nuevas{" "}
+              Construimos viviendas{" "}
               <motion.span
-                className="text-brand-secondary"
+                className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] sm:drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
                 variants={heroTitleSpanVariants}
                 initial="hidden"
                 animate="visible"
               >
-                bien pensadas
-              </motion.span>{" "}
-              desde el primer plano hasta la entrega de llaves.
+                pensadas para vivir
+              </motion.span>
             </motion.h1>
+            <motion.p
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-100 leading-relaxed sm:leading-relaxed"
+              variants={heroTitleVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.2 }}
+            >
+              Desde el primer boceto hasta la entrega de llaves.
+            </motion.p>
             <motion.div
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2"
               variants={heroButtonsVariants}
               initial="hidden"
               animate="visible"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
+              >
                 <Link
                   href="/contacto"
-                  className="btn-primary px-6 py-2.5 shadow-lg shadow-black/40"
+                  className="btn-primary w-full sm:w-auto px-6 py-3 sm:py-2.5 text-base sm:text-sm font-bold shadow-lg shadow-black/40 text-center inline-flex items-center justify-center"
                 >
-                  Hablar con ingeniería
+                  Hablar con Certifica
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
+              >
                 <Link
                   href="/obra-nueva"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200/80 bg-white/5 px-5 py-2.5 text-sm font-medium text-slate-100/90 transition hover:border-slate-50 hover:bg-white/10 hover:text-white"
+                  className="inline-flex items-center justify-center w-full sm:w-auto border-2 border-slate-200/80 bg-white/10 backdrop-blur-sm px-5 py-3 sm:py-2.5 text-base sm:text-sm font-medium text-slate-100 transition hover:border-slate-50 hover:bg-white/20 hover:text-white"
                 >
                   Ver servicios
                 </Link>
@@ -208,7 +191,7 @@ export const HomePage: React.FC = () => {
         variants={fadeInUp}
       >
         <div className="section-container space-y-10">
-          <div className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] md:items-center">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
             <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-secondary">
                 Qué construimos
@@ -226,15 +209,16 @@ export const HomePage: React.FC = () => {
               </p>
               <Link
                 href="/contacto"
-                className="btn-primary block w-full rounded-xl px-4 py-3 text-center text-xs uppercase tracking-[0.08em] shadow-md shadow-black/30"
+                className="btn-primary block w-full rounded-xl px-4 py-3 text-center text-xs sm:text-sm uppercase tracking-[0.08em] shadow-md shadow-black/30"
               >
-                ¿TIENES UNA VIVIENDA O PROMOCIÓN EN MENTE? HABLEMOS
+                <span className="hidden sm:inline">¿TIENES UNA VIVIENDA O PROMOCIÓN EN MENTE? HABLEMOS</span>
+                <span className="sm:hidden">HABLEMOS DE TU PROYECTO</span>
               </Link>
             </div>
           </div>
 
           <motion.div
-            className="grid gap-5 md:grid-cols-4"
+            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -332,10 +316,10 @@ export const HomePage: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <div className="section-container grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] md:items-center">
+        <div className="section-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
           <div className="relative flex items-center justify-center">
-            <div className="flex h-72 w-72 items-center justify-center rounded-full border border-slate-200">
-              <div className="flex h-40 w-40 flex-col items-center justify-center rounded-full bg-slate-900 px-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-black/20">
+            <div className="flex h-56 w-56 sm:h-72 sm:w-72 items-center justify-center rounded-full border border-slate-200">
+              <div className="flex h-32 w-32 sm:h-40 sm:w-40 flex-col items-center justify-center rounded-full bg-slate-900 px-4 sm:px-6 text-center text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-black/20">
                 <span>CRECIMIENTO</span>
                 <span className="mt-1">SÓLIDO Y</span>
                 <span className="mt-1">PLANIFICADO</span>
@@ -415,13 +399,13 @@ export const HomePage: React.FC = () => {
         variants={fadeInUp}
       >
         <div className="section-container space-y-10">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-secondary">
                 Nuestros trabajos
               </p>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Viviendas y edificios residenciales construidos por nuestro equipo.
+                Nuestros proyectos
               </h2>
             </div>
             <p className="max-w-xl text-sm text-slate-600">
@@ -432,7 +416,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <motion.div
-            className="grid gap-6 md:grid-cols-3"
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -440,32 +424,32 @@ export const HomePage: React.FC = () => {
           >
             <motion.div variants={fadeInUp}>
               <ProjectPhotoCard
-                imageUrl="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                title="Conjunto de 10 viviendas unifamiliares"
-                location="Urbanización residencial"
+                imageUrl="/assets/img4.jpeg"
+                title="Nueva promoción de 33 viviendas"
+                location="Pau de Carabanchel"
                 savings="Obra nueva llave en mano"
                 description="Ejecución completa de estructura, cerramientos, cubiertas y acabados interiores, coordinando todos los oficios."
-                tags={["Unifamiliar", "Obra nueva", "Urbanización"]}
+                tags={["Vivienda colectiva", "Obra nueva", "Promoción"]}
               />
             </motion.div>
             <motion.div variants={fadeInUp}>
               <ProjectPhotoCard
-                imageUrl="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                title="Edificio de 24 viviendas en bloque"
-                location="Zona urbana consolidada"
+                imageUrl="/assets/img5.jpeg"
+                title="Vivienda Unifamiliar"
+                location="Montepríncipe"
+                savings="Proyecto y obra completa"
+                description="Vivienda unifamiliar ejecutada desde cero, con estructura, instalaciones y acabados de calidad, coordinando todos los oficios."
+                tags={["Unifamiliar", "Obra nueva", "Diseño personalizado"]}
+              />
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <ProjectPhotoCard
+                imageUrl="/assets/img6.jpeg"
+                title="Bloque de viviendas más local"
+                location="Calle Joaquín Turina dos"
                 savings="Estructura y acabados completos"
                 description="Edificio residencial con plantas tipo, garaje y zonas comunes, ejecutado con control de plazos y calidad de materiales."
                 tags={["Vivienda colectiva", "Bloque residencial", "Zonas comunes"]}
-              />
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <ProjectPhotoCard
-                imageUrl="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                title="Vivienda unifamiliar aislada"
-                location="Parcela independiente"
-                savings="Proyecto y obra completa"
-                description="Vivienda de diseño contemporáneo con grandes ventanales, ejecutada desde movimiento de tierras hasta paisajismo exterior."
-                tags={["Unifamiliar aislada", "Diseño contemporáneo", "Obra completa"]}
               />
             </motion.div>
           </motion.div>
@@ -480,26 +464,23 @@ export const HomePage: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <div className="section-container flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white px-6 py-7 shadow-md shadow-black/10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="section-container flex flex-col gap-6 rounded-2xl sm:rounded-3xl border border-slate-200 bg-white px-4 py-6 sm:px-6 sm:py-7 shadow-md shadow-black/10 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-secondary">
-              ¿Hablamos de energía?
+              Constructora especializada en obra nueva
             </p>
             <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
-              Te enviamos un prediagnóstico energético en 48 horas laborables.
+              Construimos tu vivienda desde cero hasta la entrega de llaves.
             </h2>
             <p className="max-w-xl text-sm text-slate-600">
-              Cuéntanos, en un par de párrafos, cómo es tu edificio o
-              instalación y adjunta, si quieres, la última factura de luz o
-              gas. Te responderemos con una estimación orientativa de ahorro y
-              propuestas de mejora.
+              Viviendas unifamiliares y edificios en bloque. Proyecto, dirección de obra y coordinación de oficios para entregar viviendas de calidad en plazo.
             </p>
           </div>
-          <div className="flex flex-col gap-3 text-sm sm:items-end">
-            <Link href="/contacto" className="btn-primary px-7 py-2.5 shadow-md shadow-black/30">
-              Solicitar prediagnóstico
+          <div className="flex flex-col gap-3 text-sm sm:items-start lg:items-end">
+            <Link href="/contacto" className="btn-primary w-full sm:w-auto px-6 sm:px-7 py-2.5 text-center shadow-md shadow-black/30">
+              Hablar con la constructora
             </Link>
-            <p className="text-[11px] text-slate-500 sm:text-right">
+            <p className="text-[11px] text-slate-500 sm:text-left lg:text-right">
               También puedes llamarnos al{" "}
               <a
                 href="tel:+34614069154"
@@ -612,8 +593,9 @@ const ProjectPhotoCard: React.FC<ProjectPhotoCardProps> = ({
     <div className="relative h-40 overflow-hidden">
       <img
         src={imageUrl}
-        alt={title}
+        alt={`${title} - ${location} - Proyecto de obra nueva residencial por Certifica Ingeniería`}
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
       <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-slate-50">

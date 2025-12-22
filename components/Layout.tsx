@@ -9,6 +9,8 @@ import {
   ListChecks,
   Wrench,
   ChartLineUp,
+  X,
+  List,
 } from "phosphor-react";
 
 const sections = [
@@ -27,6 +29,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const pathname = usePathname();
 
@@ -42,11 +45,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
     "/eficiencia-energetica",
   ].includes(pathname);
 
-  // Si estamos en /admin, no renderizar navbar ni footer
-  if (pathname?.startsWith("/admin")) {
-    return <>{children}</>;
-  }
-
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Subnavbar corporativa */}
@@ -58,12 +56,13 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
       >
         <div className="section-container flex flex-col gap-1 py-1.5 sm:flex-row sm:items-center sm:justify-between">
           <motion.p
-            className="font-semibold"
+            className="font-semibold text-[11px] sm:text-xs"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
           >
-            Constructora especializada en obra nueva residencial: viviendas unifamiliares y en bloque.
+            <span className="hidden sm:inline">Constructora especializada en obra nueva residencial: viviendas unifamiliares y en bloque.</span>
+            <span className="sm:hidden">Constructora especializada en obra nueva residencial</span>
           </motion.p>
           <motion.div
             className="flex flex-wrap items-center gap-3"
@@ -111,17 +110,19 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
         }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
       >
-        <div className="section-container flex items-center justify-between py-5 overflow-visible">
+        <div className="section-container flex items-center justify-between py-4 sm:py-5 overflow-visible">
           <Link href="/">
             <motion.div
-              className="relative flex h-12 items-center overflow-visible"
+              className="relative flex h-10 sm:h-12 items-center overflow-visible"
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 260 }}
             >
               <img
                 src="/assets/logo.png"
-                alt="Certifica Ingeniería"
-                className="h-12 w-auto"
+                alt="Certifica Ingeniería - Constructora especializada en obra nueva residencial en Madrid"
+                className="h-10 sm:h-12 w-auto"
+                width={120}
+                height={48}
               />
             </motion.div>
           </Link>
@@ -171,7 +172,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.96, y: -4 }}
                     transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-0 top-8 z-50 w-[440px] rounded-xl border border-slate-200 bg-white text-[13px] text-slate-900 shadow-xl"
+                    className="absolute left-0 top-8 z-50 w-[320px] rounded-xl border border-slate-200 bg-white text-[13px] text-slate-900 shadow-xl"
                   >
                     <div className="px-4 pb-2 pt-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
@@ -179,7 +180,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
                       </p>
                     </div>
                     <div className="h-px w-full bg-slate-200" />
-                    <div className="grid gap-1.5 p-2 sm:grid-cols-2">
+                    <div className="flex flex-col gap-1.5 p-2">
                       <Link
                         href="/obra-nueva"
                         className="flex items-start gap-2 rounded-lg px-2 py-2 text-left text-[13px] hover:bg-slate-50"
@@ -210,7 +211,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
                       </Link>
                       <Link
                         href="/rehabilitacion-sate"
-                        className="flex items-start gap-2 rounded-lg px-2 py-2 text-left text-[13px] hover:bg-slate-50 sm:col-span-2"
+                        className="flex items-start gap-2 rounded-lg px-2 py-2 text-left text-[13px] hover:bg-slate-50"
                       >
                         <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-md bg-slate-100 text-slate-600">
                           <Buildings size={15} weight="duotone" />
@@ -260,82 +261,195 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
               );
             })}
           </nav>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
-          >
-            <Link
-              href="/contacto"
-              className="hidden btn-primary px-4 py-1.5 text-sm font-bold shadow-md shadow-black/40 md:inline-flex"
+          <div className="flex items-center gap-3">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
             >
-              <motion.span
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{ display: "inline-block" }}
+              <Link
+                href="/contacto"
+                className="hidden btn-primary px-4 py-1.5 text-sm font-bold shadow-md shadow-black/40 md:inline-flex"
               >
-                Hablemos
-              </motion.span>
-            </Link>
-          </motion.div>
+                <motion.span
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ display: "inline-block" }}
+                >
+                  Hablemos
+                </motion.span>
+              </Link>
+            </motion.div>
+            {/* Botón menú móvil */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex items-center justify-center rounded-lg p-2 text-slate-600 transition hover:bg-slate-100 md:hidden"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X size={24} weight="bold" />
+              ) : (
+                <List size={24} weight="bold" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Menú móvil */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="border-t border-slate-200 bg-white md:hidden"
+            >
+              <div className="section-container py-4 space-y-4">
+                {/* Servicios móvil */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 px-2">
+                    Servicios
+                  </p>
+                  <Link
+                    href="/obra-nueva"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  >
+                    <ChartLineUp size={20} weight="duotone" className="text-slate-600 mt-0.5" />
+                    <div>
+                      <p className="font-semibold">Obra nueva residencial</p>
+                      <p className="text-xs text-slate-500">Viviendas unifamiliares y edificios colectivos</p>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/eficiencia-energetica"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  >
+                    <ListChecks size={20} weight="duotone" className="text-slate-600 mt-0.5" />
+                    <div>
+                      <p className="font-semibold">Eficiencia energética</p>
+                      <p className="text-xs text-slate-500">Estudios y certificación energética</p>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/rehabilitacion-sate"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  >
+                    <Buildings size={20} weight="duotone" className="text-slate-600 mt-0.5" />
+                    <div>
+                      <p className="font-semibold">Rehabilitación y SATE</p>
+                      <p className="text-xs text-slate-500">Mejora de envolvente térmica</p>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="h-px bg-slate-200" />
+
+                {/* Otras secciones móvil */}
+                <div className="space-y-1">
+                  {sections.map((s) => {
+                    const isActive = pathname === s.path;
+                    return (
+                      <Link
+                        key={s.id}
+                        href={s.path}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block rounded-lg px-3 py-2.5 text-sm font-semibold transition ${
+                          isActive
+                            ? "bg-brand-secondary/10 text-brand-secondary"
+                            : "text-slate-700 hover:bg-slate-50"
+                        }`}
+                      >
+                        {s.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    href="/contacto"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="btn-primary block w-full text-center px-4 py-2.5 text-sm font-bold shadow-md"
+                  >
+                    Hablemos
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       <main>{children}</main>
 
       <footer className="border-t border-black bg-black text-slate-50">
-        <div className="section-container grid gap-8 py-10 md:grid-cols-[1.2fr,1fr]">
+        <div className="section-container grid gap-8 py-8 sm:py-12 md:grid-cols-[1.5fr,1fr,1fr]">
           <div className="space-y-4">
             <img
               src="/assets/logo.png"
-              alt="Certifica Ingeniería"
+              alt="Certifica Ingeniería - Constructora especializada en obra nueva residencial en Madrid"
               className="h-10 w-auto"
+              width={120}
+              height={40}
             />
             <p className="max-w-md text-xs leading-relaxed text-slate-50/90">
-              Ingeniería especializada en analizar, diseñar y acompañar proyectos
-              de mejora energética en edificios e industria: menos consumo, más
-              confort y activos más sostenibles.
+              Constructora especializada en obra nueva residencial. Construimos viviendas unifamiliares y edificios en bloque desde el proyecto hasta la entrega de llaves.
             </p>
-            <p className="text-[11px] text-slate-50/70">
-              Web de ejemplo. Sustituya estos datos por los de su empresa antes
-              de publicar.
-            </p>
+            <div className="space-y-2 pt-2">
+              <a
+                href="tel:+34614069154"
+                className="flex items-center gap-2 text-sm font-semibold text-slate-50 transition hover:text-emerald-400"
+              >
+                <span>+34 614 06 91 54</span>
+              </a>
+              <a
+                href="mailto:administración@certificaingenieria.com"
+                className="block text-xs text-slate-50/80 transition hover:text-emerald-400"
+              >
+                administración@certificaingenieria.com
+              </a>
+            </div>
           </div>
 
-          <div className="grid gap-6 text-[11px] sm:grid-cols-2">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-50/80">
-                Navegación
-              </p>
-              <div className="flex flex-col gap-1">
-                <Link href="/obra-nueva" className="hover:text-slate-200">
-                  Servicios
-                </Link>
-                <Link href="/contacto" className="hover:text-slate-200">
-                  Contacto
-                </Link>
-              </div>
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-50/80">
+              Servicios
+            </p>
+            <div className="flex flex-col gap-2 text-xs">
+              <Link href="/obra-nueva" className="text-slate-50/90 transition hover:text-emerald-400">
+                Obra nueva residencial
+              </Link>
+              <Link href="/rehabilitacion-sate" className="text-slate-50/90 transition hover:text-emerald-400">
+                Rehabilitación y SATE
+              </Link>
+              <Link href="/eficiencia-energetica" className="text-slate-50/90 transition hover:text-emerald-400">
+                Eficiencia energética
+              </Link>
             </div>
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-50/80">
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-50/80">
+              Empresa
+            </p>
+            <div className="flex flex-col gap-2 text-xs">
+              <Link href="/nosotros" className="text-slate-50/90 transition hover:text-emerald-400">
+                Nosotros
+              </Link>
+              <Link href="/por-que-certifica" className="text-slate-50/90 transition hover:text-emerald-400">
+                Por qué Certifica
+              </Link>
+              <Link href="/experiencia" className="text-slate-50/90 transition hover:text-emerald-400">
+                Experiencia
+              </Link>
+              <Link href="/contacto" className="text-slate-50/90 transition hover:text-emerald-400">
                 Contacto
-              </p>
-              <div className="space-y-1">
-                <p className="text-[11px] text-slate-50/70">Correo</p>
-                <a
-                  href="mailto:administración@certificaingenieria.com"
-                  className="block text-[11px] hover:text-slate-200"
-                >
-                  administración@certificaingenieria.com
-                </a>
-                <p className="mt-2 text-[11px] text-slate-50/70">Teléfono</p>
-                <a
-                  href="tel:+34614069154"
-                  className="block text-[11px] hover:text-slate-200"
-                >
-                  +34 614 06 91 54
-                </a>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -345,9 +459,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
               © {new Date().getFullYear()} Certifica Ingeniería. Todos los
               derechos reservados.
             </p>
-            <span className="text-slate-50/70">
-              Diseño creado con Next.js + TypeScript + Tailwind CSS.
-            </span>
           </div>
         </div>
       </footer>

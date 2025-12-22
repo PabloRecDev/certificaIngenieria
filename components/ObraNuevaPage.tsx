@@ -54,8 +54,8 @@ export const ObraNuevaPage: React.FC = () => {
               className="relative overflow-hidden rounded-2xl"
             >
               <img
-                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Vivienda residencial"
+                src="/assets/img4.jpeg"
+                alt="Nueva promoción de 33 viviendas en el Pau de Carabanchel"
                 className="h-full w-full object-cover"
               />
             </motion.div>
@@ -79,8 +79,8 @@ export const ObraNuevaPage: React.FC = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Vivienda unifamiliar"
+                  src="/assets/img5.jpeg"
+                  alt="Vivienda Unifamiliar Montepríncipe"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -118,8 +118,8 @@ export const ObraNuevaPage: React.FC = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Edificio colectivo"
+                  src="/assets/img6.jpeg"
+                  alt="Bloque de viviendas más local en la calle Joaquín Turina dos"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -207,6 +207,82 @@ export const ObraNuevaPage: React.FC = () => {
                 <p className="text-xs leading-relaxed text-slate-600">
                   {service.description}
                 </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Ejemplos de proyectos */}
+      <section className="border-b border-slate-200 bg-white py-14 sm:py-20">
+        <div className="section-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+            className="mb-10 max-w-2xl"
+          >
+            <h2 className="mb-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Ejemplos de proyectos de obra nueva
+            </h2>
+            <p className="text-sm text-slate-600 sm:text-base">
+              Algunos ejemplos de viviendas y promociones que hemos ejecutado desde cero.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {[
+              {
+                image: "/assets/img4.jpeg",
+                title: "Nueva promoción de 33 viviendas",
+                location: "Pau de Carabanchel",
+              },
+              {
+                image: "/assets/img5.jpeg",
+                title: "Vivienda Unifamiliar",
+                location: "Montepríncipe",
+              },
+              {
+                image: "/assets/img6.jpeg",
+                title: "Bloque de viviendas más local",
+                location: "Calle Joaquín Turina dos",
+              },
+              {
+                image: "/assets/img12.jpeg",
+                title: "13 viviendas garajes y trasteros",
+                location: "Ceferino Ávila, 14",
+              },
+              {
+                image: "/assets/img13.jpeg",
+                title: "Seis viviendas garajes y trasteros",
+                location: "Calle Alejandro Morán, 41",
+              },
+            ].map((project, index) => (
+              <motion.div
+                key={project.title}
+                variants={fadeInUp}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="mb-1 text-base font-semibold text-slate-900">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-slate-600">{project.location}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>

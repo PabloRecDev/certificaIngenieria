@@ -149,6 +149,72 @@ export default function RehabilitacionPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Ejemplos de proyectos */}
+      <section className="border-b border-slate-200 bg-white py-14 sm:py-20">
+        <div className="section-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+            className="mb-10 max-w-2xl"
+          >
+            <h2 className="mb-4 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Ejemplos de proyectos de rehabilitación
+            </h2>
+            <p className="text-sm text-slate-600 sm:text-base">
+              Algunos ejemplos de rehabilitaciones que hemos ejecutado.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid gap-6 md:grid-cols-3"
+          >
+            {[
+              {
+                image: "/assets/img1.jpeg",
+                title: "Rehabilitación de fachada",
+                location: "Calle Manzanos 34, San Sebastián de los Reyes",
+              },
+              {
+                image: "/assets/img2.jpeg",
+                title: "Rehabilitación de fachada",
+                location: "Calle Manzanos 34, San Sebastián de los Reyes",
+              },
+              {
+                image: "/assets/img3.jpeg",
+                title: "Rehabilitación de fachada",
+                location: "Calle Manzanos 34, San Sebastián de los Reyes",
+              },
+            ].map((project, index) => (
+              <motion.div
+                key={`${project.title}-${index}`}
+                variants={fadeInUp}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="mb-1 text-base font-semibold text-slate-900">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-slate-600">{project.location}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
     </>
   );
 }

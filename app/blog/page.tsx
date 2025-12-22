@@ -2,13 +2,25 @@ import type { Metadata } from "next";
 import { BlogPage } from "@/components/BlogPage";
 
 export const metadata: Metadata = {
-  title: "Blog - Artículos sobre eficiencia energética | Certifica Ingeniería",
-  description: "Guías prácticas, normativas actualizadas y casos reales para ayudarte a entender y mejorar la eficiencia energética de tu edificio.",
-  keywords: ["blog", "eficiencia energética", "renovables", "certificación energética", "normativas", "auditorías", "Madrid"],
+  title: "Blog - Artículos sobre Construcción y Obra Nueva Residencial | Certifica Ingeniería",
+  description: "Artículos y guías sobre construcción, obra nueva residencial, eficiencia energética y rehabilitación de edificios. Consejos prácticos y casos reales de proyectos en Madrid.",
+  keywords: [
+    "blog construcción",
+    "artículos obra nueva",
+    "guías construcción",
+    "eficiencia energética edificios",
+    "rehabilitación edificios",
+    "consejos construcción",
+    "Madrid",
+  ],
   openGraph: {
-    title: "Blog - Certifica Ingeniería",
-    description: "Artículos sobre eficiencia energética y renovables.",
+    title: "Blog - Artículos sobre Construcción y Obra Nueva Residencial",
+    description: "Artículos y guías sobre construcción, obra nueva residencial y eficiencia energética.",
     type: "website",
+    url: "https://certificaingenieria.com/blog",
+  },
+  alternates: {
+    canonical: "https://certificaingenieria.com/blog",
   },
 };
 

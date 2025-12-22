@@ -33,7 +33,7 @@ export const EficienciaEnergeticaPage: React.FC = () => {
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white py-14 sm:py-20">
         <div className="section-container">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+          <div className="max-w-3xl">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -50,19 +50,6 @@ export const EficienciaEnergeticaPage: React.FC = () => {
                 Analizamos tus consumos, identificamos oportunidades de ahorro y
                 diseñamos planes de mejora con retorno claro y medible.
               </p>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUp}
-              transition={{ delay: 0.2 }}
-              className="relative overflow-hidden rounded-2xl"
-            >
-              <img
-                src="https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Eficiencia energética"
-                className="h-full w-full object-cover"
-              />
             </motion.div>
           </div>
         </div>
@@ -82,13 +69,6 @@ export const EficienciaEnergeticaPage: React.FC = () => {
               variants={fadeInUp}
               className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Estudios energéticos"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
                   <ChartLineUp size={32} weight="duotone" />
@@ -121,13 +101,6 @@ export const EficienciaEnergeticaPage: React.FC = () => {
               variants={fadeInUp}
               className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Certificación energética"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
                   <FileText size={32} weight="duotone" />

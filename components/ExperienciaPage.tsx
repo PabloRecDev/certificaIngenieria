@@ -31,46 +31,40 @@ type ProjectProps = {
 
 const projects: ProjectProps[] = [
   {
-    imageUrl:
-      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    title: "Conjunto de 12 viviendas unifamiliares",
-    location: "Urbanización residencial",
+    imageUrl: "/assets/img4.jpeg",
+    title: "Nueva promoción de 33 viviendas",
+    location: "Pau de Carabanchel",
+    type: "Obra nueva · Vivienda colectiva",
+  },
+  {
+    imageUrl: "/assets/img5.jpeg",
+    title: "Vivienda Unifamiliar",
+    location: "Montepríncipe",
     type: "Obra nueva · Vivienda unifamiliar",
   },
   {
-    imageUrl:
-      "https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    title: "Edificio de 32 viviendas en bloque",
-    location: "Zona urbana consolidada",
+    imageUrl: "/assets/img6.jpeg",
+    title: "Bloque de viviendas más local",
+    location: "Calle Joaquín Turina dos",
     type: "Obra nueva · Vivienda colectiva",
   },
   {
-    imageUrl:
-      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    title: "Vivienda unifamiliar aislada",
-    location: "Parcela independiente",
-    type: "Obra nueva · Unifamiliar de diseño",
-  },
-  {
-    imageUrl:
-      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    title: "Promoción de 8 viviendas pareadas",
-    location: "Zona residencial",
-    type: "Obra nueva · Vivienda pareada",
-  },
-  {
-    imageUrl:
-      "https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    title: "Edificio de 24 viviendas",
-    location: "Centro urbano",
+    imageUrl: "/assets/img12.jpeg",
+    title: "13 viviendas garajes y trasteros",
+    location: "Ceferino Ávila, 14",
     type: "Obra nueva · Vivienda colectiva",
   },
   {
-    imageUrl:
-      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    title: "Vivienda unifamiliar con diseño moderno",
-    location: "Parcela privada",
-    type: "Obra nueva · Unifamiliar",
+    imageUrl: "/assets/img13.jpeg",
+    title: "Seis viviendas garajes y trasteros",
+    location: "Calle Alejandro Morán, 41",
+    type: "Obra nueva · Vivienda colectiva",
+  },
+  {
+    imageUrl: "/assets/img3.jpeg",
+    title: "Rehabilitación de fachada",
+    location: "Calle Manzanos 34, San Sebastián de los Reyes",
+    type: "Rehabilitación · Fachada",
   },
 ];
 
@@ -107,7 +101,7 @@ export const ExperienciaPage: React.FC = () => {
               className="relative overflow-hidden rounded-2xl"
             >
               <img
-                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/assets/img4.jpeg"
                 alt="Experiencia Certifica"
                 className="h-full w-full object-cover"
               />
@@ -128,7 +122,7 @@ export const ExperienciaPage: React.FC = () => {
           >
             {[
               { number: "50+", label: "Viviendas entregadas" },
-              { number: "15+", label: "Años de experiencia" },
+              { number: "20+", label: "Años de experiencia" },
               { number: "100%", label: "Proyectos en plazo" },
             ].map((stat, index) => (
               <motion.div
@@ -175,24 +169,25 @@ export const ExperienciaPage: React.FC = () => {
               <motion.article
                 key={project.title}
                 variants={fadeInUp}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 overflow-hidden bg-slate-100">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
-                <div className="flex flex-1 flex-col justify-between p-5">
-                  <div className="space-y-2">
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div className="space-y-3">
                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
                       {project.type}
                     </p>
-                    <h2 className="text-sm font-semibold text-slate-900 sm:text-base">
+                    <h2 className="text-base font-semibold leading-tight text-slate-900 sm:text-lg">
                       {project.title}
                     </h2>
-                    <p className="text-xs text-slate-500">{project.location}</p>
+                    <p className="text-sm text-slate-600">{project.location}</p>
                   </div>
                 </div>
               </motion.article>

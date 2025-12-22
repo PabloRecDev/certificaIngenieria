@@ -128,13 +128,6 @@ export const PorQuePage: React.FC = () => {
             variants={fadeInUp}
             className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
-            <div className="relative h-40 overflow-hidden">
-              <img
-                src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Experiencia"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
             <div className="flex flex-1 flex-col p-5">
               <h3 className="text-sm font-semibold text-slate-900">
                 Experiencia en obra nueva
@@ -149,13 +142,6 @@ export const PorQuePage: React.FC = () => {
             variants={fadeInUp}
             className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
-            <div className="relative h-40 overflow-hidden">
-              <img
-                src="https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Acompañamiento"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
             <div className="flex flex-1 flex-col p-5">
               <h3 className="text-sm font-semibold text-slate-900">
                 Acompañamiento completo
@@ -170,13 +156,6 @@ export const PorQuePage: React.FC = () => {
             variants={fadeInUp}
             className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
-            <div className="relative h-40 overflow-hidden">
-              <img
-                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Calidad"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
             <div className="flex flex-1 flex-col p-5">
               <h3 className="text-sm font-semibold text-slate-900">
                 Cuidado por los acabados
@@ -253,7 +232,7 @@ export const PorQuePage: React.FC = () => {
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="relative h-32 overflow-hidden rounded-xl border border-slate-200">
               <img
-                src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/assets/img10.jpeg"
                 alt="Reunión inicial de proyecto"
                 className="h-full w-full object-cover"
               />
@@ -263,7 +242,7 @@ export const PorQuePage: React.FC = () => {
             </div>
             <div className="relative h-32 overflow-hidden rounded-xl border border-slate-200">
               <img
-                src="https://images.pexels.com/photos/439416/pexels-photo-439416.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/assets/img11.jpeg"
                 alt="Supervisión de obra"
                 className="h-full w-full object-cover"
               />
@@ -293,18 +272,18 @@ export const PorQuePage: React.FC = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                image: "/assets/img5.jpeg",
                 title: "Vivienda unifamiliar",
                 description: "Proyecto completo desde cero",
               },
               {
-                image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                image: "/assets/img12.jpeg",
                 title: "Edificio residencial",
                 description: "Promoción de 12 viviendas",
               },
               {
-                image: "https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                title: "Vivienda pareada",
+                image: "/assets/img6.jpeg",
+                title: "Bloque de viviendas más local",
                 description: "Diseño personalizado y ejecución",
               },
             ].map((project, index) => (
