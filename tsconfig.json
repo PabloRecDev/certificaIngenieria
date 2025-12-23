@@ -1,5 +1,5 @@
 {
-  "exclude": ["src-old", "node_modules", ".next"],
+  "exclude": ["src-old", "node_modules", ".next", "vite.config.ts", "tailwind-vite.config.js", "tsconfig-vite.json", "package-vite.json", "index.html"],
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
