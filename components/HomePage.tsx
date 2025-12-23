@@ -114,10 +114,8 @@ export const HomePage: React.FC = () => {
           }}
           aria-label="Promoción de 33 viviendas en Pau de Carabanchel - Obra nueva residencial"
         />
-        {/* Overlay adicional para móviles para mejor legibilidad */}
-        <div className="absolute inset-0 z-[9] bg-gradient-to-b from-black/60 via-black/50 to-black/60 md:hidden" />
         <motion.div
-          className="absolute inset-0 z-10 bg-black/55 sm:bg-black/50 md:bg-black/45 lg:bg-black/55"
+          className="absolute inset-0 z-10 bg-black/40 sm:bg-black/45 md:bg-black/45 lg:bg-black/55"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
