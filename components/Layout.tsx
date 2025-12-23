@@ -37,7 +37,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
     setScrolled(latest > 50);
   });
 
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === null;
   const isServicesActive = pathname ? [
     "/rehabilitacion",
     "/rehabilitacion-sate",
@@ -231,7 +231,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
 
             {/* Resto de secciones */}
             {sections.map((s, index) => {
-              const isActive = pathname === s.path;
+              const isActive = pathname !== null && pathname === s.path;
               return (
                 <Link key={s.id} href={s.path}>
                   <motion.span
@@ -352,7 +352,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
                 {/* Otras secciones móvil */}
                 <div className="space-y-1">
                   {sections.map((s) => {
-                    const isActive = pathname === s.path;
+                    const isActive = pathname !== null && pathname === s.path;
                     return (
                       <Link
                         key={s.id}
