@@ -38,12 +38,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
   });
 
   const isHome = pathname === "/";
-  const isServicesActive = [
+  const isServicesActive = pathname ? [
     "/rehabilitacion",
     "/rehabilitacion-sate",
     "/obra-nueva",
     "/eficiencia-energetica",
-  ].includes(pathname);
+  ].includes(pathname) : false;
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
