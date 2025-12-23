@@ -220,7 +220,7 @@ export const HomePage: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.05 }}
             >
               <p>
                 Coordinamos todas las fases de la obra —desde el movimiento de
