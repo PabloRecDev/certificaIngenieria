@@ -74,15 +74,15 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
             </a>
           </motion.div>
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-2 sm:gap-3"
+            className="hidden sm:flex flex-row items-center justify-end gap-3"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.4 }}
           >
-            <span className="hidden h-3 w-px bg-emerald-100/60 sm:inline-block" />
-            <Link href="/contacto" className="w-full sm:w-auto">
+            <span className="h-3 w-px bg-emerald-100/60" />
+            <Link href="/contacto" className="w-auto">
               <motion.span
-                className="inline-flex items-center justify-center rounded-full border border-emerald-100/70 px-2.5 py-1 sm:px-3 sm:py-0.5 text-[10px] sm:text-[11px] font-bold transition hover:bg-white/10 hover:scale-105 w-full sm:w-auto"
+                className="inline-flex items-center justify-center rounded-full border border-emerald-100/70 px-3 py-0.5 text-[11px] font-bold transition hover:bg-white/10 hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ display: "inline-block" }}
