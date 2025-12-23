@@ -29,11 +29,10 @@ export const BlogPage: React.FC = () => {
               Blog
             </p>
             <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Artículos sobre eficiencia energética y renovables
+              Artículos sobre construcción y obra nueva residencial
             </h1>
             <p className="text-base text-slate-600 sm:text-lg">
-              Guías prácticas, normativas actualizadas y casos reales para ayudarte
-              a entender y mejorar la eficiencia energética de tu edificio.
+              Guías prácticas, consejos y casos reales sobre construcción de viviendas, obra nueva residencial, rehabilitación y gestión de proyectos constructivos.
             </p>
           </motion.div>
         </div>
@@ -53,7 +52,7 @@ export const BlogPage: React.FC = () => {
               Aún no hay artículos publicados.
             </p>
             <p className="mt-2 text-sm text-slate-500">
-              Próximamente publicaremos contenido sobre eficiencia energética y renovables.
+              Próximamente publicaremos contenido sobre construcción, obra nueva residencial y gestión de proyectos.
             </p>
           </motion.div>
         </div>
