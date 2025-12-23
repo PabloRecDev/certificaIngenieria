@@ -54,7 +54,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <div className="section-container flex flex-col gap-2 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:py-1.5">
+        <div className="section-container flex flex-col gap-1.5 py-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:py-1.5">
           <motion.p
             className="font-semibold text-center sm:text-left text-[10px] sm:text-[11px] md:text-xs leading-tight"
             initial={{ opacity: 0, x: -20 }}
@@ -80,7 +80,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
             <span className="hidden h-3 w-px bg-emerald-100/60 sm:inline-block" />
             <Link href="/contacto" className="w-full sm:w-auto">
               <motion.span
-                className="inline-flex items-center justify-center rounded-full border border-emerald-100/70 px-3 py-1.5 sm:py-0.5 text-[10px] sm:text-[11px] font-bold transition hover:bg-white/10 hover:scale-105 w-full sm:w-auto"
+                className="inline-flex items-center justify-center rounded-full border border-emerald-100/70 px-2.5 py-1 sm:px-3 sm:py-0.5 text-[10px] sm:text-[11px] font-bold transition hover:bg-white/10 hover:scale-105 w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ display: "inline-block" }}
