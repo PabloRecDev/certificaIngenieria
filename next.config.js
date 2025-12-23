@@ -22,27 +22,21 @@ const nextConfig = {
     config.plugins.push(
       new webpack.IgnorePlugin({
         resourceRegExp: /^react-router-dom$/,
-        contextRegExp: /src/,
+        contextRegExp: /src-old/,
       })
     );
     
-    // Excluir completamente la carpeta src/ del procesamiento
+    // Excluir completamente la carpeta src-old/ del procesamiento
     config.module.rules.push({
       test: /\.(tsx?|jsx?)$/,
       include: [
-        path.resolve(__dirname, 'src'),
+        path.resolve(__dirname, 'src-old'),
       ],
       exclude: /node_modules/,
       use: {
         loader: path.resolve(__dirname, 'webpack-ignore-loader.js'),
       },
     });
-    
-    // También excluir src/ del resolve
-    config.resolve.modules = [
-      ...(config.resolve.modules || []),
-      path.resolve(__dirname, 'src'),
-    ];
     
     return config;
   },
