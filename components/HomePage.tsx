@@ -255,6 +255,7 @@ export const HomePage: React.FC = () => {
                 title="Vivienda unifamiliar"
                 description="Casas aisladas, adosadas o pareadas, diseñadas para aprovechar la parcela y la luz natural."
                 cta="Ver proyectos"
+                href="/experiencia"
               />
             </motion.div>
             <motion.div custom={1} variants={cardVariants}>
@@ -263,6 +264,7 @@ export const HomePage: React.FC = () => {
                 title="Vivienda colectiva"
                 description="Edificios de viviendas en altura, con estructuras cuidadas y zonas comunes bien resueltas."
                 cta="Ver proyectos"
+                href="/experiencia"
               />
             </motion.div>
             <motion.div custom={2} variants={cardVariants}>
@@ -271,6 +273,7 @@ export const HomePage: React.FC = () => {
                 title="Promociones completas"
                 description="Conjuntos residenciales y urbanizaciones, coordinando todos los oficios y suministros."
                 cta="Ver promociones"
+                href="/experiencia"
               />
             </motion.div>
             <motion.div custom={3} variants={cardVariants}>
@@ -279,6 +282,7 @@ export const HomePage: React.FC = () => {
                 title="Proyectos singulares"
                 description="Viviendas de autor y ampliaciones especiales que requieren un seguimiento de obra muy cercano."
                 cta="Ver proyectos"
+                href="/experiencia"
                 highlight
               />
             </motion.div>
@@ -587,6 +591,7 @@ type ServiceTileProps = {
   title: string;
   description: string;
   cta: string;
+  href?: string;
   highlight?: boolean;
 };
 
@@ -595,6 +600,7 @@ const ServiceTile: React.FC<ServiceTileProps> = ({
   title,
   description,
   cta,
+  href,
   highlight,
 }) => (
   <article className="group flex h-full min-h-[380px] flex-col justify-between rounded-2xl border border-slate-100 px-7 py-10 text-sm shadow-md shadow-black/10 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:bg-slate-900 hover:border-slate-900 bg-white text-slate-900">
@@ -626,12 +632,21 @@ const ServiceTile: React.FC<ServiceTileProps> = ({
         {description}
       </p>
     </div>
-    <button
-      type="button"
-      className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 transition-colors duration-300 group-hover:text-white"
-    >
-      {cta}
-    </button>
+    {href ? (
+      <Link
+        href={href}
+        className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 transition-colors duration-300 group-hover:text-white"
+      >
+        {cta}
+      </Link>
+    ) : (
+      <button
+        type="button"
+        className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 transition-colors duration-300 group-hover:text-white"
+      >
+        {cta}
+      </button>
+    )}
   </article>
 );
 
