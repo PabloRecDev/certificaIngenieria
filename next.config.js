@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -14,6 +16,20 @@ const nextConfig = {
         tls: false,
       };
     }
+    
+    // Excluir carpeta src/ del build (archivos antiguos de React Router)
+    config.module.rules.push({
+      test: /\.(tsx?|jsx?)$/,
+      include: path.resolve(__dirname, 'src'),
+      use: 'ignore-loader',
+    });
+    
+    // Ignorar react-router-dom completamente
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-router-dom': false,
+    };
+    
     return config;
   },
 };
