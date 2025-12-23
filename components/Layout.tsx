@@ -37,7 +37,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
     setScrolled(latest > 50);
   });
 
-  const isHome = pathname === "/" || pathname === null;
+  const isHome = pathname === "/";
   const isServicesActive = pathname ? [
     "/rehabilitacion",
     "/rehabilitacion-sate",
