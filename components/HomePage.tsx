@@ -603,7 +603,7 @@ const ServiceTile: React.FC<ServiceTileProps> = ({
   href,
   highlight,
 }) => (
-  <article className="group flex h-full min-h-[380px] flex-col justify-between rounded-2xl border border-slate-100 px-7 py-10 text-sm shadow-md shadow-black/10 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:bg-slate-900 hover:border-slate-900 bg-white text-slate-900">
+  <article className="group flex h-full min-h-[380px] flex-col justify-between rounded-2xl border border-slate-100 px-7 py-10 text-sm shadow-md shadow-black/10 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-xl hover:bg-black hover:border-black bg-white text-slate-900">
     <div className="space-y-4">
       <motion.div
         className="inline-flex h-16 w-16 items-center justify-center rounded-xl border-2 text-xl font-semibold text-slate-900 border-slate-300 bg-white/70 backdrop-blur-sm"
