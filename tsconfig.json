@@ -1,5 +1,4 @@
 {
-  "exclude": ["src-old", "node_modules", ".next", "vite.config.ts", "tailwind-vite.config.js", "tsconfig-vite.json", "package-vite.json", "index.html"],
   "compilerOptions": {
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -24,7 +23,7 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["src-old", "node_modules", "*.old", "**/*.old"]
+  "exclude": ["src-old", "node_modules", ".next", "*.old", "**/*.old", "vite.config.ts.old", "tailwind-vite.config.js.old", "tsconfig-vite.json.old", "package-vite.json.old", "index.html.old"]
 }
 
 
