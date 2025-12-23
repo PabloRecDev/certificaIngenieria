@@ -15,11 +15,11 @@ import {
 } from "phosphor-react";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
@@ -188,7 +188,7 @@ export const HomePage: React.FC = () => {
         className="border-b border-slate-200 bg-white py-14 sm:py-20"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={fadeInUp}
       >
         <div className="section-container space-y-10">
@@ -247,7 +247,7 @@ export const HomePage: React.FC = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.05 }}
           >
             <motion.div custom={0} variants={cardVariants}>
               <ServiceTile
