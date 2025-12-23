@@ -165,34 +165,48 @@ export const ContactoPage: React.FC = () => {
               </div>
 
               {/* Información de contacto */}
-              <div className="space-y-4 pt-4">
-                <a
+              <motion.div 
+                className="space-y-4 pt-4"
+                variants={fadeInUp}
+                transition={{ delay: 0.3 }}
+              >
+                <motion.a
                   href="mailto:administración@certificaingenieria.com"
                   className="flex items-center gap-3 text-slate-700 transition hover:text-brand-secondary"
+                  whileHover={{ x: 5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-secondary/10 text-brand-secondary">
+                  <motion.div 
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-secondary/10 text-brand-secondary"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
                     <Envelope size={20} weight="duotone" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-xs font-medium text-slate-500">Correo</p>
                     <p className="text-sm font-medium">
                       administración@certificaingenieria.com
                     </p>
                   </div>
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="tel:+34614069154"
                   className="flex items-center gap-3 text-slate-700 transition hover:text-brand-secondary"
+                  whileHover={{ x: 5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-secondary/10 text-brand-secondary">
+                  <motion.div 
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-secondary/10 text-brand-secondary"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
                     <Phone size={20} weight="duotone" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-xs font-medium text-slate-500">Teléfono</p>
                     <p className="text-sm font-medium">+34 614 06 91 54</p>
                   </div>
-                </a>
-              </div>
+                </motion.a>
+              </motion.div>
             </motion.div>
 
             {/* Formulario a la derecha */}

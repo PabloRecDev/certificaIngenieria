@@ -51,12 +51,15 @@ export const ObraNuevaPage: React.FC = () => {
               animate="visible"
               variants={fadeInUp}
               transition={{ delay: 0.2 }}
-              className="relative overflow-hidden rounded-2xl"
+              className="relative overflow-hidden rounded-2xl group"
+              whileHover={{ scale: 1.02 }}
             >
-              <img
+              <motion.img
                 src="/assets/img4.jpeg"
                 alt="Nueva promoción de 33 viviendas en el Pau de Carabanchel"
                 className="h-full w-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
               />
             </motion.div>
           </div>

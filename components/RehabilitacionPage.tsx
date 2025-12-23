@@ -94,10 +94,13 @@ export default function RehabilitacionPage() {
             viewport={{ once: true, amount: 0.2 }}
             className="grid gap-6 md:grid-cols-3"
           >
-            {blocks.map((block) => (
+            {blocks.map((block, index) => (
               <motion.article
                 key={block.title}
                 variants={fadeInUp}
+                custom={index}
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">

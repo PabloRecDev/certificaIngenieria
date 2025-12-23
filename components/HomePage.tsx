@@ -193,29 +193,53 @@ export const HomePage: React.FC = () => {
       >
         <div className="section-container space-y-10">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-secondary">
+            <motion.div 
+              className="space-y-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <motion.p 
+                className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-secondary"
+                variants={fadeInUp}
+              >
                 Qué construimos
-              </p>
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              </motion.p>
+              <motion.h2 
+                className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl"
+                variants={fadeInUp}
+              >
                 Obra nueva residencial: viviendas unifamiliares y edificios en
                 bloque.
-              </h2>
-            </div>
-            <div className="space-y-4 text-sm text-slate-600">
+              </motion.h2>
+            </motion.div>
+            <motion.div 
+              className="space-y-4 text-sm text-slate-600"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              transition={{ delay: 0.2 }}
+            >
               <p>
                 Coordinamos todas las fases de la obra —desde el movimiento de
                 tierras hasta los últimos remates— para que la vivienda quede
                 como se proyectó y se entregue en plazo.
               </p>
-              <Link
-                href="/contacto"
-                className="btn-primary block w-full rounded-xl px-4 py-3 text-center text-xs sm:text-sm uppercase tracking-[0.08em] shadow-md shadow-black/30"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="hidden sm:inline">¿TIENES UNA VIVIENDA O PROMOCIÓN EN MENTE? HABLEMOS</span>
-                <span className="sm:hidden">HABLEMOS DE TU PROYECTO</span>
-              </Link>
-            </div>
+                <Link
+                  href="/contacto"
+                  className="btn-primary block w-full rounded-xl px-4 py-3 text-center text-xs sm:text-sm uppercase tracking-[0.08em] shadow-md shadow-black/30"
+                >
+                  <span className="hidden sm:inline">¿TIENES UNA VIVIENDA O PROMOCIÓN EN MENTE? HABLEMOS</span>
+                  <span className="sm:hidden">HABLEMOS DE TU PROYECTO</span>
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
 
           <motion.div
@@ -260,15 +284,25 @@ export const HomePage: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          <div className="mt-6 space-y-8 rounded-2xl border border-slate-100 bg-slate-50/70 px-5 py-7 sm:px-7 sm:py-8">
-            <div className="text-center">
+          <motion.div 
+            className="mt-6 space-y-8 rounded-2xl border border-slate-100 bg-slate-50/70 px-5 py-7 sm:px-7 sm:py-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            transition={{ delay: 0.3 }}
+          >
+            <motion.div 
+              className="text-center"
+              variants={fadeInUp}
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-secondary">
                 Cómo trabajamos una obra
               </p>
               <p className="mt-2 text-sm font-medium text-slate-800 sm:text-base">
                 Tres fases claras para convertir un plano en una vivienda terminada.
               </p>
-            </div>
+            </motion.div>
 
             <div className="relative">
               <div className="pointer-events-none absolute inset-x-10 top-16 hidden h-px border-t-2 border-dashed border-slate-300/70 md:block" />
@@ -305,7 +339,7 @@ export const HomePage: React.FC = () => {
                 </motion.div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -318,14 +352,28 @@ export const HomePage: React.FC = () => {
         variants={fadeInUp}
       >
         <div className="section-container grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
-          <div className="relative flex items-center justify-center">
-            <div className="flex h-56 w-56 sm:h-72 sm:w-72 items-center justify-center rounded-full border border-slate-200">
-              <div className="flex h-32 w-32 sm:h-40 sm:w-40 flex-col items-center justify-center rounded-full bg-slate-900 px-4 sm:px-6 text-center text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-black/20">
+          <motion.div 
+            className="relative flex items-center justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <motion.div 
+              className="flex h-56 w-56 sm:h-72 sm:w-72 items-center justify-center rounded-full border border-slate-200"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <motion.div 
+                className="flex h-32 w-32 sm:h-40 sm:w-40 flex-col items-center justify-center rounded-full bg-slate-900 px-4 sm:px-6 text-center text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-black/20"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <span>CRECIMIENTO</span>
                 <span className="mt-1">SÓLIDO Y</span>
                 <span className="mt-1">PLANIFICADO</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute left-1/2 top-2 -translate-x-1/2 text-slate-700">
                 <SunHorizon size={26} weight="duotone" />
@@ -343,10 +391,20 @@ export const HomePage: React.FC = () => {
                 <Buildings size={26} weight="duotone" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="space-y-5 text-sm text-slate-600">
-            <div className="space-y-3">
+          <motion.div 
+            className="space-y-5 text-sm text-slate-600"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.div 
+              className="space-y-3"
+              variants={fadeInUp}
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-secondary">
                 Por qué Certifica Ingeniería
               </p>
@@ -360,8 +418,12 @@ export const HomePage: React.FC = () => {
                 obra sea claro y que el resultado final se corresponda con lo
                 que se proyectó y se acordó contigo.
               </p>
-            </div>
-            <div className="space-y-2 text-sm">
+            </motion.div>
+            <motion.div 
+              className="space-y-2 text-sm"
+              variants={fadeInUp}
+              transition={{ delay: 0.1 }}
+            >
               <p>
                 <span className="font-semibold text-slate-900">La calidad</span>{" "}
                 en la ejecución y{" "}
@@ -377,16 +439,22 @@ export const HomePage: React.FC = () => {
                 técnicos comprometidos, acostumbrados a coordinar oficios y a
                 comunicar de forma transparente.
               </p>
-            </div>
-            <div className="pt-2">
-              <Link
-                href="/contacto"
-                className="btn-primary inline-flex gap-2 px-6 py-2.5 shadow-md shadow-black/20"
-              >
-                Hablar sobre tu proyecto
-              </Link>
-            </div>
-          </div>
+            </motion.div>
+            <motion.div 
+              className="pt-2"
+              variants={fadeInUp}
+              transition={{ delay: 0.2 }}
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/contacto"
+                  className="btn-primary inline-flex gap-2 px-6 py-2.5 shadow-md shadow-black/20"
+                >
+                  Hablar sobre tu proyecto
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -400,21 +468,31 @@ export const HomePage: React.FC = () => {
         variants={fadeInUp}
       >
         <div className="section-container space-y-10">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
+          <motion.div 
+            className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <motion.div variants={fadeInUp}>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-secondary">
                 Nuestros trabajos
               </p>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                 Nuestros proyectos
               </h2>
-            </div>
-            <p className="max-w-xl text-sm text-slate-600">
+            </motion.div>
+            <motion.p 
+              className="max-w-xl text-sm text-slate-600"
+              variants={fadeInUp}
+              transition={{ delay: 0.1 }}
+            >
               Algunos ejemplos de viviendas unifamiliares y edificios en bloque
               que hemos ejecutado, combinando estructura, acabados y
               coordinación de oficios.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           <motion.div
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
@@ -477,21 +555,27 @@ export const HomePage: React.FC = () => {
               Viviendas unifamiliares y edificios en bloque. Proyecto, dirección de obra y coordinación de oficios para entregar viviendas de calidad en plazo.
             </p>
           </div>
-          <div className="flex flex-col gap-3 text-sm sm:items-start lg:items-end">
-            <Link href="/contacto" className="btn-primary w-full sm:w-auto px-6 sm:px-7 py-2.5 text-center shadow-md shadow-black/30">
-              Hablar con la constructora
-            </Link>
+          <motion.div 
+            className="flex flex-col gap-3 text-sm sm:items-start lg:items-end"
+            variants={fadeInUp}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/contacto" className="btn-primary w-full sm:w-auto px-6 sm:px-7 py-2.5 text-center shadow-md shadow-black/30">
+                Hablar con la constructora
+              </Link>
+            </motion.div>
             <p className="text-[11px] text-slate-500 sm:text-left lg:text-right">
               También puedes llamarnos al{" "}
               <a
                 href="tel:+34614069154"
-                className="font-semibold text-brand-secondary"
+                className="font-semibold text-brand-secondary transition hover:text-brand-secondary/80"
               >
                 +34 614 06 91 54
               </a>{" "}
               y te orientamos por teléfono.
             </p>
-          </div>
+          </motion.div>
         </div>
       </motion.section>
     </>

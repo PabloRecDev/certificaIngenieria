@@ -43,13 +43,21 @@ export const PorQuePage: React.FC = () => {
             variants={fadeInUp}
             className="relative flex items-center justify-center"
           >
-            <div className="flex h-80 w-80 items-center justify-center rounded-full border border-slate-200">
-              <div className="flex h-48 w-48 flex-col items-center justify-center rounded-full bg-slate-900 px-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-black/20">
+            <motion.div 
+              className="flex h-80 w-80 items-center justify-center rounded-full border border-slate-200"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <motion.div 
+                className="flex h-48 w-48 flex-col items-center justify-center rounded-full bg-slate-900 px-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-md shadow-black/20"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <span>CRECIMIENTO</span>
                 <span className="mt-1">SÓLIDO Y</span>
                 <span className="mt-1">PLANIFICADO</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Iconos alrededor */}
             <div className="pointer-events-none absolute inset-0">

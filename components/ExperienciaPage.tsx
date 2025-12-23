@@ -129,10 +129,22 @@ export const ExperienciaPage: React.FC = () => {
                 key={stat.label}
                 variants={fadeInUp}
                 className="text-center"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="text-4xl font-semibold text-slate-900 sm:text-5xl">
+                <motion.div 
+                  className="text-4xl font-semibold text-slate-900 sm:text-5xl"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 200, 
+                    delay: index * 0.1 
+                  }}
+                >
                   {stat.number}
-                </div>
+                </motion.div>
                 <div className="mt-2 text-sm text-slate-600">{stat.label}</div>
               </motion.div>
             ))}
