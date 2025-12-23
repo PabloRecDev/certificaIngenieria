@@ -54,21 +54,21 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <div className="section-container flex flex-col gap-1.5 py-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:py-1.5">
+        <div className="section-container flex flex-row items-center justify-between gap-2 py-1.5 sm:gap-1">
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center sm:items-center gap-1.5 sm:gap-3"
+            className="flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-3 flex-1 min-w-0"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
           >
-            <p className="font-semibold text-center sm:text-left text-[10px] sm:text-[11px] md:text-xs leading-tight">
+            <p className="font-semibold text-center sm:text-left text-[10px] sm:text-[11px] md:text-xs leading-tight whitespace-nowrap">
               <span className="hidden md:inline">Constructora especializada en obra nueva residencial: viviendas unifamiliares y en bloque.</span>
               <span className="hidden sm:inline md:hidden">Constructora especializada en obra nueva residencial</span>
               <span className="sm:hidden">Constructora especializada en obra nueva</span>
             </p>
             <a
               href="tel:+34614069154"
-              className="font-bold text-[11px] sm:text-xs transition hover:scale-105 hover:text-emerald-100 whitespace-nowrap"
+              className="font-bold text-[11px] sm:text-xs transition hover:scale-105 hover:text-emerald-100 whitespace-nowrap flex-shrink-0"
             >
               +34 614 06 91 54
             </a>
